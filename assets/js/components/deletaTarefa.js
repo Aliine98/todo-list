@@ -8,7 +8,7 @@ const BotaoDeleta = () => {
 
 const deletarTarefa = (evento) => {
    const botaoDeleta = evento.target;
-   const tarefaCompleta = botaoDeleta.parentElement;
+   const tarefaCompleta = botaoDeleta.parentElement.parentElement;
    tarefaCompleta.remove();
 }
 
