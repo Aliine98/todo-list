@@ -10,9 +10,12 @@ export const handleNovoItem = (evento) => {
    const calendario = document.querySelector('[data-form-date]');
    const data = moment(calendario.value);
    const dataFormatada = data.format('DD/MM/YYYY');
+   const concluida = false;
+
    const dados = {
       dataFormatada,
-      valor
+      valor,
+      concluida
    }
 
    const tarefasAtualizadas = [...tarefas, dados];
@@ -23,13 +26,17 @@ export const handleNovoItem = (evento) => {
    input.value = '';
 }
 
-export const Tarefa = ({ dataFormatada, valor }) => {
+export const Tarefa = ({ dataFormatada, valor, concluida }, id) => {
    const tarefa = document.createElement('li');
-   tarefa.classList.add('task');
    const conteudo = `<p class=content>${dataFormatada} * ${valor}</p>`
    tarefa.innerHTML = conteudo;
+
+   if (concluida) {
+      tarefa.classList.add('done');
+   }
+   tarefa.classList.add('task');
    const span = document.createElement('span');
-   span.appendChild(BotaoConclui());
+   span.appendChild(BotaoConclui(carregaTarefa, id));
    span.appendChild(BotaoDeleta());
    tarefa.appendChild(span);
    return tarefa;
