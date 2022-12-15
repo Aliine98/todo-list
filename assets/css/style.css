@@ -171,6 +171,10 @@ body {
   overflow: auto;
 }
 
+.content-data {
+  color: #F6F1D1;
+}
+
 .task.done .content {
   text-decoration: line-through;
 }
