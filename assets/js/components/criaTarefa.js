@@ -37,7 +37,7 @@ export const Tarefa = ({ dataFormatada, valor, concluida }, id) => {
    tarefa.classList.add('task');
    const span = document.createElement('span');
    span.appendChild(BotaoConclui(carregaTarefa, id));
-   span.appendChild(BotaoDeleta());
+   span.appendChild(BotaoDeleta(carregaTarefa, id));
    tarefa.appendChild(span);
    return tarefa;
 }
